@@ -349,6 +349,7 @@ const PopStateEventType = 'popstate';
 
 export type BrowserHistoryOptions = { window?: Window };
 
+// TAG createBrowserHistory
 /**
  * Browser history stores the location in regular URLs. This is the standard for
  * most web apps, but it requires some configuration on the server to ensure you
@@ -380,6 +381,7 @@ export function createBrowserHistory(
   let blockedPopTx: Transition | null = null;
   function handlePop() {
     if (blockedPopTx) {
+      // TAG 执行 popstate 事件回调, 其实就是执行 setState 后触发 Router 的更新, 进而渲染指定的 Route 组件
       blockers.call(blockedPopTx);
       blockedPopTx = null;
     } else {
@@ -421,6 +423,7 @@ export function createBrowserHistory(
     }
   }
 
+  // TAG popstate 事件: 前进、后退、a 标签、代码里执行 history.back() 、history.forward()、history.go()
   window.addEventListener(PopStateEventType, handlePop);
 
   let action = Action.Pop;
@@ -1001,6 +1004,7 @@ type Events<F> = {
   call: (arg: any) => void;
 };
 
+// TAG 创建一个 history 对象, 后面会基于此对象对 window.history 进行二次封装
 function createEvents<F extends Function>(): Events<F> {
   let handlers: F[] = [];
 
