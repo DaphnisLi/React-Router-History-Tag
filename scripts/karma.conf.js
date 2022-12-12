@@ -76,7 +76,6 @@ module.exports = function (config) {
       'tests.webpack.js': ['webpack', 'sourcemap']
     },
     webpack: {
-      // TODO: Webpack 4+
       // mode: 'none',
       devtool: 'inline-source-map',
       resolve: {

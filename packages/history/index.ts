@@ -406,7 +406,6 @@ export function createBrowserHistory(
           // this location, so we can't effectively block the navigation.
           warning(
             false,
-            // TODO: Write up a doc that explains our blocking strategy in
             // detail and link to it here so people can understand better what
             // is going on and how to avoid it.
             `You are trying to block a POP navigation to a location that was not ` +
@@ -483,7 +482,6 @@ export function createBrowserHistory(
     if (allowTx(nextAction, nextLocation, retry)) {
       let [historyState, url] = getHistoryStateAndUrl(nextLocation, index + 1);
 
-      // TODO: Support forced reloading
       // try...catch because iOS limits us to 100 pushState calls :/
       try {
         globalHistory.pushState(historyState, '', url);
@@ -507,7 +505,6 @@ export function createBrowserHistory(
     if (allowTx(nextAction, nextLocation, retry)) {
       let [historyState, url] = getHistoryStateAndUrl(nextLocation, index);
 
-      // TODO: Support forced reloading
       globalHistory.replaceState(historyState, '', url);
 
       applyTx(nextAction);
@@ -627,7 +624,6 @@ export function createHashHistory(
           // this location, so we can't effectively block the navigation.
           warning(
             false,
-            // TODO: Write up a doc that explains our blocking strategy in
             // detail and link to it here so people can understand better
             // what is going on and how to avoid it.
             `You are trying to block a POP navigation to a location that was not ` +
@@ -735,7 +731,6 @@ export function createHashHistory(
     if (allowTx(nextAction, nextLocation, retry)) {
       let [historyState, url] = getHistoryStateAndUrl(nextLocation, index + 1);
 
-      // TODO: Support forced reloading
       // try...catch because iOS limits us to 100 pushState calls :/
       try {
         globalHistory.pushState(historyState, '', url);
@@ -766,7 +761,6 @@ export function createHashHistory(
     if (allowTx(nextAction, nextLocation, retry)) {
       let [historyState, url] = getHistoryStateAndUrl(nextLocation, index);
 
-      // TODO: Support forced reloading
       globalHistory.replaceState(historyState, '', url);
 
       applyTx(nextAction);

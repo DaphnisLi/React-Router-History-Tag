@@ -17,7 +17,6 @@ import GoForward from './TestSequences/GoForward.js';
 import BlockEverything from './TestSequences/BlockEverything.js';
 import BlockPopWithoutListening from './TestSequences/BlockPopWithoutListening.js';
 
-// TODO: Do we still need this?
 // const canGoWithoutReload = window.navigator.userAgent.indexOf('Firefox') === -1;
 // const describeGo = canGoWithoutReload ? describe : describe.skip;
 
